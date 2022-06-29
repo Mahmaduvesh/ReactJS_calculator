@@ -20,14 +20,18 @@ const App = () => {
   };
 
   const calculate = () => {
-    setResult(eval(result).toString());
+    try {
+      setResult(eval(result).toString());
+    } catch (err) {
+      setResult("Error");
+    }
   };
 
   return (
     <>
       <div class="container">
         <form>
-          <input type="text" value={result} />
+          <input type="text" placeholder="0" value={result} />
         </form>
 
         <div class="keypad">
