@@ -9,10 +9,19 @@ const App = () => {
   };
 
   const clear = () => {
+    //  remove all
     setResult("");
   };
 
-  const backspace = () => {};
+  const backspace = () => {
+    // remove one bye one element
+    // setResult(result.slice(0, result.length - 1));
+    setResult(result.slice(0, -1));
+  };
+
+  const calculate = () => {
+    setResult(eval(result).toString());
+  };
 
   return (
     <>
@@ -73,7 +82,7 @@ const App = () => {
           <button name="." onClick={HandleClick}>
             .
           </button>
-          <button className="highlight" id="result" onClick={HandleClick}>
+          <button className="highlight" id="result" onClick={calculate}>
             =
           </button>
         </div>
